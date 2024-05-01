@@ -3,3 +3,4 @@ config/__pycache__/
 tools/__pycache__/
 settings.neo
 tasks.neo
+config/__init__.py
