@@ -37,19 +37,6 @@ class retroTheme:
     border_width        = "1"
     height              = "2"
 
-class saoTheme:
-    font_main           = "SAO UI"
-    bg                  = "#C1C1C1"
-    fg                  = "black"
-    fg_footer           = "black"
-    button_fg           = "black"
-    button_bg           = "#C7C7C7"
-    button_bg_active    = "#3F7FC5"
-    footer_bg           = "#F3F8FE"
-    relief              = "flat"
-    border_width        = "0"
-    height              = "2"
-
 class simsTheme:
     font_main           = "Comic Sans MS"
     bg                  = "#01126C"

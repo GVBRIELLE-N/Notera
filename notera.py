@@ -97,7 +97,7 @@ def remove_tasks():
 
 options = loadSettings()
 task_count = loadTaskCount()
-theme = {0:darkTheme, 1: lightTheme, 2:retroTheme, 3:saoTheme, 4:simsTheme, 5:pipTheme, 6:nokiaTheme}
+theme = {0:darkTheme, 1: lightTheme, 2:retroTheme, 3:simsTheme, 4:pipTheme, 5:nokiaTheme}
 
 #Main Window
 win_main = tk.Tk()
@@ -136,10 +136,9 @@ menu_options.add_cascade(menu=options_theme, label="Set Theme")
 options_theme.add_radiobutton(label='Dark', variable=theme_var, value=0, command=setTheme)
 options_theme.add_radiobutton(label='Light', variable=theme_var, value=1, command=setTheme)
 options_theme.add_radiobutton(label='Retromantic95', variable=theme_var, value=2, command=setTheme)
-options_theme.add_radiobutton(label='Link Start', variable=theme_var, value=3, command=setTheme)
-options_theme.add_radiobutton(label='Sul Sul', variable=theme_var, value=4, command=setTheme)
-options_theme.add_radiobutton(label='Vault Kid', variable=theme_var, value=5, command=setTheme)
-options_theme.add_radiobutton(label='Yes, Kia', variable=theme_var, value=6, command=setTheme)
+options_theme.add_radiobutton(label='Sul Sul', variable=theme_var, value=3, command=setTheme)
+options_theme.add_radiobutton(label='Vault Kid', variable=theme_var, value=4, command=setTheme)
+options_theme.add_radiobutton(label='Yes, Kia', variable=theme_var, value=5, command=setTheme)
 
 
 #Frames
