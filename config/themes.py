@@ -75,3 +75,17 @@ class nokiaTheme:
     relief              = "flat"
     border_width        = "0"
     height              = "3"
+
+class starui:
+    # Placeholder Values
+    font_main           = "Segoe UI Light"
+    bg                  = "#2d2d30"
+    fg                  = "white"
+    fg_footer           = "white"
+    button_fg           = "#787878"
+    button_bg           = "#282828"
+    button_bg_active    = "#1E1E1E"
+    footer_bg           = "#730064"
+    relief              = "flat"
+    border_width        = "0"
+    height              = "2"
