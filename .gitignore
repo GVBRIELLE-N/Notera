@@ -1,4 +1,3 @@
-tasks.neo
-settings.neo
+*neo
 config/__pycache__/
 tools/__pycache__/
