@@ -6,6 +6,7 @@ from datetime import datetime as ddt
 from config.themes import *
 from config.import_export import *
 from config.settings import *
+from config.footer import rFooter
 from tools.espee import *
 from tkinter import *
 from tkinter import ttk
@@ -23,7 +24,7 @@ def configureTheme():
         
 def startEspee():
     win_espee = tk.Toplevel(win_main)
-    win_espee.title("Espee")
+    win_espee.title("Espee (Alpha)")
     win_espee.geometry('120x100')
     win_espee.resizable(False, False)
     win_espee.attributes('-toolwindow', True)
@@ -127,7 +128,7 @@ menu_file.add_command(label="Clear Tasks", command=remove_tasks)
 menu_file.add_separator()
 menu_file.add_command(label="About", command=showAbout)
 
-menu_tools.add_command(label="Espee", command=startEspee)
+menu_tools.add_command(label="Espee (Alpha)", command=startEspee)
 
 menu_options.add_cascade(menu=options_theme, label="Set Theme")
 
@@ -163,7 +164,7 @@ for wid in main_bg.winfo_children():
                       font=(theme[options].font_main, 12))
 
 #Footer Frame Widgets
-text_footer = Label(main_footer, text="Placeholder Text.", foreground=theme[options].fg_footer, background=theme[options].footer_bg, font=(theme[options].font_main, 10))
+text_footer = Label(main_footer, text=rFooter, foreground=theme[options].fg_footer, background=theme[options].footer_bg, font=(theme[options].font_main, 10))
 text_footer.pack(side=LEFT, anchor=SW)
 
 text_footer_time = Label(main_footer, text="00:00", foreground=theme[options].fg_footer, background=theme[options].footer_bg, font=(theme[options].font_main, 10))
