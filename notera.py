@@ -36,7 +36,7 @@ def startEspee():
 def loadWidgets():
     global task_count
     for i in range(task_count):
-        new_button_test = Button(main_bg, text=f"New Task")
+        new_button_test = Button(main_bg, text=f"Category {i+1}")
         new_button_test.pack(fill='x', pady='1', before=button_new_task)
         configureTheme()
     if task_count == 6:
@@ -63,13 +63,12 @@ def getButtonName():
                 else:
                     new_number.write(str(t_count))
     if t_count <= 6:
-        new_button_test = Button(main_bg, text=f"New Task")
+        new_button_test = Button(main_bg, text=f"Category {t_count}")
         new_button_test.pack(fill='x', pady='1', before=button_new_task)
         configureTheme()
         if t_count == 6:
             button_new_task.pack_forget()
-    else:
-        messagebox.showinfo("New Task", "You've reached your maximum number of tasks!")
+            messagebox.showinfo("Final Task Category", "Maximum number of categories is currently 6.")
 
 def setTheme():
     global options

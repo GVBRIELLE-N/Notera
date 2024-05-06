@@ -26,5 +26,5 @@ def loadTaskCount():
             newTasks.write("0")
 
 def confirmClear():
-    clear_confirm = messagebox.askyesno("Clear Task List", "Are you sure you want to clear the task list?")
+    clear_confirm = messagebox.askyesno("Clear Task List", "Are you sure you want to clear the task list?\n(The program will need to restart)")
     return clear_confirm
