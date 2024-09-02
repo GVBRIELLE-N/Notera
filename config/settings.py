@@ -22,7 +22,7 @@ def loadTaskCount():
             else:
                 return int(get_count)
     else:
-        with open("settings.neo", "w") as newTasks:
+        with open("tasks.neo", "w") as newTasks:
             newTasks.write("0")
 
 def confirmClear():

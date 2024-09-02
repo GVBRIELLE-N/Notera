@@ -51,6 +51,9 @@ def showAbout():
     messagebox.showinfo("Notera - Alpha", "Notera Prototype Ver. 1\nDeveloped by LEOTHERA")
 
 def restartProgram():
+    """
+    Destroys window and runs a shell script to rerun the program with applied changes
+    """
     win_main.destroy()
     os.system("./runnotera.sh")
 
