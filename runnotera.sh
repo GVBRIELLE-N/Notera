@@ -2,5 +2,5 @@
 
 #!/bin/bash
 
-echo "Launching Notera"
+echo "Restarting Notera"
 python3 notera.py

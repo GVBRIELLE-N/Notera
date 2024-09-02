@@ -22,18 +22,6 @@ def configureTheme():
                         activebackground=theme[options].button_bg_active, activeforeground=theme[options].button_fg, height=theme[options].height, borderwidth=theme[options].border_width,
                         font=(theme[options].font_main, 12))
 
-def startEspee():
-    win_espee = tk.Toplevel(win_main)
-    win_espee.title("Espee (Alpha)")
-    win_espee.geometry('120x100')
-    win_espee.resizable(False, False)
-    win_espee.attributes('-toolwindow', True)
-    win_espee.grab_set()
-    win_espee.option_add('*tearOff', False)
-    espee_bg = Frame(win_espee, background=theme[options].bg)
-    espee_bg.pack(side=TOP, fill='both', expand=True)
-    espee_main()
-
 def loadWidgets():
     global task_count
     for i in range(task_count):
@@ -133,13 +121,11 @@ theme_var.set(options)
 #Menubar and options
 menu_main       = Menu(win_main)
 menu_file       = Menu(menu_main, name='menu_file')
-menu_tools      = Menu(menu_main, name='menu_tools')
 menu_options    = Menu(menu_main, name='menu_options')
 
 options_theme   = Menu(menu_options, name='options_theme')
 
 menu_main.add_cascade(menu=menu_file, label="File")
-menu_main.add_cascade(menu=menu_tools, label="Tools")
 menu_main.add_cascade(menu=menu_options, label="Options")
 
 menu_file.add_command(label="Import Notes Backup", command=note_import)
@@ -148,8 +134,6 @@ menu_file.add_separator()
 menu_file.add_command(label="Clear Notes", command=removeNotes)
 menu_file.add_separator()
 menu_file.add_command(label="About", command=showAbout)
-
-menu_tools.add_command(label="Espee (Alpha)", command=startEspee)
 
 menu_options.add_cascade(menu=options_theme, label="Set Theme")
 
@@ -172,7 +156,7 @@ main_footer.pack(side=BOTTOM, fill='x', anchor=S)
 
 #Main Frame Widgets
 
-text_date = Label(main_bg, text="00:00", foreground=theme[options].fg, background=theme[options].bg, font=(theme[options].font_main, 12))
+text_date = Label(main_bg, text="00 - 00 - 0000", foreground=theme[options].fg, background=theme[options].bg, font=(theme[options].font_main, 12))
 text_date.pack(side=TOP, pady='4')
 
 button_new_task = Button(main_bg, text="+ New", command=getButtonName)
