@@ -50,6 +50,10 @@ def showAbout():
     """
     messagebox.showinfo("Notera - Alpha", "Notera Prototype Ver. 1\nDeveloped by LEOTHERA")
 
+def restartProgram():
+    win_main.destroy()
+    os.system("./runnotera.sh")
+
 def getButtonName():
     global task_count
     t_count = loadTaskCount()
@@ -82,8 +86,7 @@ def setTheme():
         with open("settings.neo", "w") as theme_setting:
             theme_setting.write(str(chosen_theme))
         options = loadSettings()
-        win_main.destroy()
-        os.system("./runnotera.sh")
+        restartProgram()
     else:
         pass
 
@@ -104,8 +107,7 @@ def remove_tasks():
     if remove:
         with open("tasks.neo", "w") as task_val:
             task_val.write("0")
-        win_main.destroy()
-        os.system("./runnotera.sh")
+        restartProgram()
     else:
         pass
 
