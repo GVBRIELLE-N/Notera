@@ -48,7 +48,7 @@ def showAbout():
     """
     Display information about Notera
     """
-    messagebox.showinfo("Notera - Alpha", "Notera Prototype Ver. 1\nDeveloped by Kayleigh N")
+    messagebox.showinfo("Notera - Alpha", "Notera Prototype Ver. 1\nDeveloped by LEOTHERA")
 
 def getButtonName():
     global task_count
@@ -70,9 +70,11 @@ def getButtonName():
         configureTheme()
         if t_count == 5:
             button_new_task.pack_forget()
-            # messagebox.showinfo("Final Task Category", "Maximum number of categories is currently 5.")
 
 def setTheme():
+    """
+    Changes the UI theme
+    """
     global options
     change_theme = confirmTheme()
     chosen_theme = theme_var.get()
@@ -86,17 +88,24 @@ def setTheme():
         pass
 
 def updateTime():
+    """
+    Ensures the time and date displayed matches your current time
+    """
     today = str(ddt.now())
     text_date.config(text=f"{today[0:10]}")
     text_footer_time.config(text=f"{today[11:16]}")
     win_main.after(100, updateTime)
 
 def remove_tasks():
+    """
+    Clears the list of notes created
+    """
     remove = confirmClear()
     if remove:
         with open("tasks.neo", "w") as task_val:
             task_val.write("0")
-        setTheme()
+        win_main.destroy()
+        os.system("./runnotera.sh")
     else:
         pass
 
