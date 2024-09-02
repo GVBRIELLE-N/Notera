@@ -70,16 +70,20 @@ def getButtonName():
         configureTheme()
         if t_count == 5:
             button_new_task.pack_forget()
-            messagebox.showinfo("Final Task Category", "Maximum number of categories is currently 5.")
+            # messagebox.showinfo("Final Task Category", "Maximum number of categories is currently 5.")
 
 def setTheme():
     global options
+    change_theme = confirmTheme()
     chosen_theme = theme_var.get()
-    with open("settings.neo", "w") as theme_setting:
-        theme_setting.write(str(chosen_theme))
-    options = loadSettings()
-    win_main.destroy()
-    os.system("./runnotera.sh")
+    if change_theme:
+        with open("settings.neo", "w") as theme_setting:
+            theme_setting.write(str(chosen_theme))
+        options = loadSettings()
+        win_main.destroy()
+        os.system("./runnotera.sh")
+    else:
+        pass
 
 def updateTime():
     today = str(ddt.now())
