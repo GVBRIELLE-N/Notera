@@ -40,7 +40,7 @@ def loadWidgets():
         new_button_test = Button(main_bg, text=f"Category {i+1}")
         new_button_test.pack(fill='x', pady='1', before=button_new_task)
         configureTheme()
-    if task_count == 6:
+    if task_count == 5:
         button_new_task.pack_forget()
 
 def showAbout():
@@ -67,9 +67,9 @@ def getButtonName():
         new_button_test = Button(main_bg, text=f"Category {t_count}")
         new_button_test.pack(fill='x', pady='1', before=button_new_task)
         configureTheme()
-        if t_count == 6:
+        if t_count == 5:
             button_new_task.pack_forget()
-            messagebox.showinfo("Final Task Category", "Maximum number of categories is currently 6.")
+            messagebox.showinfo("Final Task Category", "Maximum number of categories is currently 5.")
 
 def setTheme():
     global options
