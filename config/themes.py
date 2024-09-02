@@ -48,7 +48,7 @@ class simsTheme:
     footer_bg           = "#000138"
     relief              = "raised"
     border_width        = "1"
-    height              = "1"
+    height              = "3"
 
 class pipTheme:
     font_main           = "Fixedsys"
