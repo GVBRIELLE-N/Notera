@@ -101,7 +101,7 @@ def updateTime():
     text_footer_time.config(text=f"{today[11:16]}")
     win_main.after(100, updateTime)
 
-def remove_tasks():
+def removeNotes():
     """
     Clears the list of notes created
     """
@@ -142,10 +142,10 @@ menu_main.add_cascade(menu=menu_file, label="File")
 menu_main.add_cascade(menu=menu_tools, label="Tools")
 menu_main.add_cascade(menu=menu_options, label="Options")
 
-menu_file.add_command(label="Import Tasks", command=task_import)
-menu_file.add_command(label="Export Tasks", command=task_export)
+menu_file.add_command(label="Import Notes Backup", command=note_import)
+menu_file.add_command(label="Export Notes Backup", command=note_export)
 menu_file.add_separator()
-menu_file.add_command(label="Clear Tasks", command=remove_tasks)
+menu_file.add_command(label="Clear Notes", command=removeNotes)
 menu_file.add_separator()
 menu_file.add_command(label="About", command=showAbout)
 
