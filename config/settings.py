@@ -26,9 +26,9 @@ def loadTaskCount():
             newTasks.write("0")
 
 def confirmClear():
-    clear_confirm = messagebox.askyesno("Clear Task List", "Are you sure you want to clear the task list?\n(The program will need to restart)")
+    clear_confirm = messagebox.askyesno("Clear Task List", "Are you sure you want to clear the task list?")
     return clear_confirm
 
 def confirmTheme():
-    theme_confirm = messagebox.askyesno("Set New Theme", "The selected theme will be applied.\n(The program will need to restart)")
+    theme_confirm = messagebox.askyesno("Set New Theme", "The selected theme will be applied.\n(The program will need to restart to apply changes)")
     return theme_confirm

@@ -10,7 +10,6 @@ from config.footer import rFooter
 from tools.espee import *
 from tkinter import *
 from tkinter import ttk
-import subprocess as sp
 import os
 
 global options
@@ -22,7 +21,7 @@ def configureTheme():
             wid.configure(relief=theme[options].relief, foreground=theme[options].button_fg, background=theme[options].button_bg,
                         activebackground=theme[options].button_bg_active, activeforeground=theme[options].button_fg, height=theme[options].height, borderwidth=theme[options].border_width,
                         font=(theme[options].font_main, 12))
-        
+
 def startEspee():
     win_espee = tk.Toplevel(win_main)
     win_espee.title("Espee (Alpha)")
@@ -38,7 +37,7 @@ def startEspee():
 def loadWidgets():
     global task_count
     for i in range(task_count):
-        new_button_test = Button(main_bg, text=f"Category {i+1}")
+        new_button_test = Button(main_bg, text=f"Note #{i+1}")
         new_button_test.pack(fill='x', pady='1', before=button_new_task)
         configureTheme()
     if task_count == 5:
@@ -48,7 +47,7 @@ def showAbout():
     """
     Display information about Notera
     """
-    messagebox.showinfo("Notera - Alpha", "Notera Prototype Ver. 1\nDeveloped by LEOTHERA")
+    messagebox.showinfo("Notera - Alpha", "Notera Prototype Ver. 1\n\nDeveloped by LEOTHERA")
 
 def restartProgram():
     """
@@ -72,7 +71,7 @@ def getButtonName():
                 else:
                     new_number.write(str(t_count))
     if t_count <= 6:
-        new_button_test = Button(main_bg, text=f"Category {t_count}")
+        new_button_test = Button(main_bg, text=f"Note #{t_count}")
         new_button_test.pack(fill='x', pady='1', before=button_new_task)
         configureTheme()
         if t_count == 5:
@@ -110,7 +109,10 @@ def remove_tasks():
     if remove:
         with open("tasks.neo", "w") as task_val:
             task_val.write("0")
-        restartProgram()
+        for wid in main_bg.winfo_children():
+            if isinstance(wid, Button):
+                wid.pack_forget()
+        button_new_task.pack(fill='x', pady='1')
     else:
         pass
 
