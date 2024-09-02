@@ -107,8 +107,8 @@ def removeNotes():
     """
     remove = confirmClear()
     if remove:
-        with open("tasks.neo", "w") as task_val:
-            task_val.write("0")
+        with open("notecount.neo", "w") as note_val:
+            note_val.write("0")
         for wid in main_bg.winfo_children():
             if isinstance(wid, Button):
                 wid.pack_forget()
