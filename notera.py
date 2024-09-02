@@ -10,6 +10,7 @@ from config.footer import rFooter
 from tools.espee import *
 from tkinter import *
 from tkinter import ttk
+import subprocess as sp
 import os
 
 global options
@@ -78,7 +79,7 @@ def setTheme():
         theme_setting.write(str(chosen_theme))
     options = loadSettings()
     win_main.destroy()
-    os.system("notera.py")
+    os.system("./runnotera.sh")
 
 def updateTime():
     today = str(ddt.now())
