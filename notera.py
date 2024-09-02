@@ -58,14 +58,14 @@ def restartProgram():
 
 def getButtonName():
     global task_count
-    t_count = loadTaskCount()
-    with open("tasks.neo", "r+") as task_number:
-        t_count = int(task_number.read())
+    t_count = loadNoteCount()
+    with open("notecount.neo", "r+") as note_number:
+        t_count = int(note_number.read())
         if t_count > 6:
-            task_number.write("0")
+            note_number.write("0")
         else:
             t_count += 1
-            with open("tasks.neo", "w") as new_number:
+            with open("notecount.neo", "w") as new_number:
                 if t_count > 6:
                     new_number.write("0")
                 else:
@@ -117,7 +117,7 @@ def remove_tasks():
         pass
 
 options = loadSettings()
-task_count = loadTaskCount()
+task_count = loadNoteCount()
 theme = {0:darkTheme, 1: lightTheme, 2:retroTheme, 3:simsTheme, 4:pipTheme, 5:nokiaTheme}
 
 #Main Window

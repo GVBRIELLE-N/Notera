@@ -2,6 +2,10 @@ import os
 from tkinter import messagebox
 
 def loadSettings():
+    """
+    Loads the last saved configuration
+    Currently only gets the saved theme value
+    """
     if os.path.exists("settings.neo"):
         with open("settings.neo", "r+") as settings:
             get_options = settings.read()
@@ -12,23 +16,34 @@ def loadSettings():
                 return int(get_options)
     
 
-def loadTaskCount():
-    if os.path.exists("tasks.neo"):
-        with open("tasks.neo", "r+") as taskcount:
-            get_count = taskcount.read()
+def loadNoteCount():
+    """
+    Loads the last saved number of notes
+    """
+    if os.path.exists("notecount.neo"):
+        with open("notecount.neo", "r+") as notecount:
+            get_count = notecount.read()
             if get_count == '':
-                taskcount.write("0")
+                notecount.write("0")
                 return 0
             else:
                 return int(get_count)
     else:
-        with open("tasks.neo", "w") as newTasks:
-            newTasks.write("0")
+        with open("notecount.neo", "w") as newNotes:
+            newNotes.write("0")
 
 def confirmClear():
-    clear_confirm = messagebox.askyesno("Clear Task List", "Are you sure you want to clear the task list?")
+    """
+    Allows the user to confirm that they want to clear the list of notes
+    Returns a boolean value depending on the option the user selected
+    """
+    clear_confirm = messagebox.askyesno("Clear Note List", "Are you sure you want to clear all saved notes?")
     return clear_confirm
 
 def confirmTheme():
+    """
+    Allows the user to confirm that they want to change the program's current theme
+    Returns a boolean value depending on the option the user selected
+    """
     theme_confirm = messagebox.askyesno("Set New Theme", "The selected theme will be applied.\n(The program will need to restart to apply changes)")
     return theme_confirm
