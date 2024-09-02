@@ -1,8 +1,6 @@
 # Notera
-Notera is a simple To-Do program written in Python.
-The program will have basic functionality but will be enough to manage day to day tasks.
+Notera is a simple Note taking program written in Python.
+The program will have basic functionality but will be capable of writing and retrieving notes.
 
 ## Features:
-- Create up to 6 task categories
-- Create tasks under each task with three statuses: To-Do, In Progress, Completed.
-- Add descriptions and notes for each task.
+- Create up to 6 note categories (temporary limit)
