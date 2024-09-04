@@ -65,6 +65,19 @@ def getButtonName():
         if t_count == 5:
             button_new_task.pack_forget()
 
+def changeTheme():
+    main_bg.config(background=theme[options].bg)
+    main_footer.config(background=theme[options].footer_bg)
+    text_date.config(foreground=theme[options].fg, background=theme[options].bg, font=(theme[options].font_main, 12))
+    text_footer.config(foreground=theme[options].fg_footer, background=theme[options].footer_bg, font=(theme[options].font_main, 10))
+    text_footer_time.config(foreground=theme[options].fg_footer, background=theme[options].footer_bg, font=(theme[options].font_main, 10))
+    for wid in main_bg.winfo_children():
+            if isinstance(wid, Button):
+                wid.configure(relief=theme[options].relief, foreground=theme[options].button_fg, background=theme[options].button_bg,
+                            activebackground=theme[options].button_bg_active, activeforeground=theme[options].button_fg, height=theme[options].height, borderwidth=theme[options].border_width,
+                            font=(theme[options].font_main, 12))
+    print(options)
+
 def setTheme():
     """
     Changes the UI theme
@@ -76,7 +89,8 @@ def setTheme():
         with open("settings.neo", "w") as theme_setting:
             theme_setting.write(str(chosen_theme))
         options = loadSettings()
-        restartProgram()
+        changeTheme()
+        # restartProgram()
     else:
         pass
 

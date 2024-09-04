@@ -45,5 +45,5 @@ def confirmTheme():
     Allows the user to confirm that they want to change the program's current theme
     Returns a boolean value depending on the option the user selected
     """
-    theme_confirm = messagebox.askyesno("Set New Theme", "The selected theme will be applied.\n(Program will restart to apply changes)")
+    theme_confirm = messagebox.askokcancel("Set New Theme", "The selected theme will be applied.")
     return theme_confirm
