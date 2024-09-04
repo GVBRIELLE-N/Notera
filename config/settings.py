@@ -39,11 +39,3 @@ def confirmClear():
     """
     clear_confirm = messagebox.askyesno("Clear Note List", "Are you sure you want to clear all saved notes?")
     return clear_confirm
-
-def confirmTheme():
-    """
-    Allows the user to confirm that they want to change the program's current theme
-    Returns a boolean value depending on the option the user selected
-    """
-    theme_confirm = messagebox.askokcancel("Set New Theme", "The selected theme will be applied.")
-    return theme_confirm

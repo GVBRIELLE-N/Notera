@@ -71,28 +71,18 @@ def changeTheme():
     text_date.config(foreground=theme[options].fg, background=theme[options].bg, font=(theme[options].font_main, 12))
     text_footer.config(foreground=theme[options].fg_footer, background=theme[options].footer_bg, font=(theme[options].font_main, 10))
     text_footer_time.config(foreground=theme[options].fg_footer, background=theme[options].footer_bg, font=(theme[options].font_main, 10))
-    for wid in main_bg.winfo_children():
-            if isinstance(wid, Button):
-                wid.configure(relief=theme[options].relief, foreground=theme[options].button_fg, background=theme[options].button_bg,
-                            activebackground=theme[options].button_bg_active, activeforeground=theme[options].button_fg, height=theme[options].height, borderwidth=theme[options].border_width,
-                            font=(theme[options].font_main, 12))
-    print(options)
+    configureTheme()    
 
 def setTheme():
     """
     Changes the UI theme
     """
     global options
-    change_theme = confirmTheme()
     chosen_theme = theme_var.get()
-    if change_theme:
-        with open("settings.neo", "w") as theme_setting:
-            theme_setting.write(str(chosen_theme))
-        options = loadSettings()
-        changeTheme()
-        # restartProgram()
-    else:
-        pass
+    with open("settings.neo", "w") as theme_setting:
+        theme_setting.write(str(chosen_theme))
+    options = loadSettings()
+    changeTheme()
 
 def updateTime():
     """
@@ -176,11 +166,7 @@ text_date.pack(side=TOP, pady='4')
 button_new_task = Button(main_bg, text="+ New", command=getButtonName)
 button_new_task.pack(fill='x', pady='1')
 
-for wid in main_bg.winfo_children():
-    if isinstance(wid, Button):
-        wid.configure(relief=theme[options].relief, foreground=theme[options].button_fg, background=theme[options].button_bg,
-                      activebackground=theme[options].button_bg_active, activeforeground=theme[options].button_fg, height=theme[options].height, borderwidth=theme[options].border_width,
-                      font=(theme[options].font_main, 12))
+configureTheme()
 
 #Footer Frame Widgets
 text_footer = Label(main_footer, text=rFooter, foreground=theme[options].fg_footer, background=theme[options].footer_bg, font=(theme[options].font_main, 10))
