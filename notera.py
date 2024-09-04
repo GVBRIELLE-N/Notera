@@ -15,7 +15,7 @@ import os
 global options
 global task_count
             
-def configureTheme():
+def configureButtonTheme():
     for wid in main_bg.winfo_children():
         if isinstance(wid, Button):
             wid.configure(relief=theme[options].relief, foreground=theme[options].button_fg, background=theme[options].button_bg,
@@ -27,7 +27,7 @@ def loadWidgets():
     for i in range(task_count):
         new_button_test = Button(main_bg, text=f"Note #{i+1}")
         new_button_test.pack(fill='x', pady='1', before=button_new_task)
-        configureTheme()
+        configureButtonTheme()
     if task_count == 5:
         button_new_task.pack_forget()
 
@@ -61,7 +61,7 @@ def getButtonName():
     if t_count <= 6:
         new_button_test = Button(main_bg, text=f"Note #{t_count}")
         new_button_test.pack(fill='x', pady='1', before=button_new_task)
-        configureTheme()
+        configureButtonTheme()
         if t_count == 5:
             button_new_task.pack_forget()
 
@@ -71,7 +71,7 @@ def changeTheme():
     text_date.config(foreground=theme[options].fg, background=theme[options].bg, font=(theme[options].font_main, 12))
     text_footer.config(foreground=theme[options].fg_footer, background=theme[options].footer_bg, font=(theme[options].font_main, 10))
     text_footer_time.config(foreground=theme[options].fg_footer, background=theme[options].footer_bg, font=(theme[options].font_main, 10))
-    configureTheme()    
+    configureButtonTheme()    
 
 def setTheme():
     """
@@ -139,7 +139,7 @@ menu_file.add_command(label="Clear Notes", command=removeNotes)
 menu_file.add_separator()
 menu_file.add_command(label="About", command=showAbout)
 
-menu_options.add_cascade(menu=options_theme, label="Set Theme")
+menu_options.add_cascade(menu=options_theme, label="Theme")
 
 #----------------------------Themes Menu-------------------------------------------------
 options_theme.add_radiobutton(label='Dark', variable=theme_var, value=0, command=setTheme)
@@ -166,7 +166,7 @@ text_date.pack(side=TOP, pady='4')
 button_new_task = Button(main_bg, text="+ New", command=getButtonName)
 button_new_task.pack(fill='x', pady='1')
 
-configureTheme()
+configureButtonTheme()
 
 #Footer Frame Widgets
 text_footer = Label(main_footer, text=rFooter, foreground=theme[options].fg_footer, background=theme[options].footer_bg, font=(theme[options].font_main, 10))
